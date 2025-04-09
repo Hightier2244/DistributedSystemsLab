@@ -1,0 +1,42 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/v1/items":
+    get:
+      summary: Get all shopping items
+      tags:
+      - Items
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create or update a shopping item
+      tags:
+      - Items
+      parameters: []
+      responses:
+        '201':
+          description: created
+        '200':
+          description: updated
+        '400':
+          description: bad request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                quantity:
+                  type: integer
+              required:
+              - name
+              - quantity
+servers:
+- url: https://orange-fishstick-4477g5jqj7jh7v6-3000.app.github.dev
+  description: Codespaces server
