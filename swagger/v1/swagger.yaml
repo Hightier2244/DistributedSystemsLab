@@ -9,21 +9,30 @@ paths:
       summary: Get all shopping items
       tags:
       - Items
+      description: Retrieves a list of all shopping items
+      operationId: getItems
       responses:
         '200':
-          description: successful
+          description: Successful operation
+        '500':
+          description: Server error
     post:
       summary: Create or update a shopping item
       tags:
       - Items
+      description: Adds a new item to the shopping list or increases quantity if the
+        item name already exists
+      operationId: createOrUpdateItem
       parameters: []
       responses:
         '201':
-          description: created
+          description: Item created successfully
         '200':
-          description: updated
+          description: Item updated successfully
         '400':
-          description: bad request
+          description: Invalid input
+        '500':
+          description: Server error
       requestBody:
         content:
           application/json:
@@ -32,11 +41,78 @@ paths:
               properties:
                 name:
                   type: string
+                  example: Bananas
                 quantity:
                   type: integer
+                  example: 5
               required:
               - name
               - quantity
+  "/v1/items/{itemId}":
+    parameters:
+    - name: itemId
+      in: path
+      description: ID of the item
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get item by ID
+      tags:
+      - Items
+      description: Retrieves a specific shopping item by its ID
+      operationId: getItemById
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: Item not found
+        '500':
+          description: Server error
+    put:
+      summary: Update an item
+      tags:
+      - Items
+      description: Updates an existing shopping item
+      operationId: updateItem
+      parameters: []
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Invalid input
+        '404':
+          description: Item not found
+        '500':
+          description: Server error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Bananas
+                quantity:
+                  type: integer
+                  example: 5
+              required:
+              - name
+              - quantity
+    delete:
+      summary: Delete an item
+      tags:
+      - Items
+      description: Removes a shopping item from the list
+      operationId: deleteItem
+      responses:
+        '204':
+          description: Item deleted successfully
+        '404':
+          description: Item not found
+        '500':
+          description: Server error
 servers:
 - url: https://orange-fishstick-4477g5jqj7jh7v6-3000.app.github.dev
   description: Codespaces server

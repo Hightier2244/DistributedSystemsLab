@@ -3,6 +3,10 @@ module V1
     skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
     before_action :set_item, only: [:show, :update, :destroy]
 
+    rescue_from ActiveRecord::RecordNotFound do
+      render json: { error: 'Item not found' }, status: :not_found
+    end
+
     def index
       items = Item.all
       render json: items
