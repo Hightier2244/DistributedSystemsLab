@@ -1,7 +1,29 @@
 # GitHub Codespaces ♥️ Ruby on Rails
 
-Welcome to your shiny new Codespace running Rails! We've got everything fired up and running for you to explore Rails.
+## Projektübersicht
+Dies ist ein Ruby on Rails-Projekt, das in GitHub Codespaces läuft. Es enthält eine API für das Verwalten von Einkaufslistenartikeln.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## Features
+- **API für Einkaufslisten**: CRUD-Operationen für Artikel.
+- **Swagger-Dokumentation**: Automatisch generierte API-Dokumentation verfügbar unter `/api-docs`.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+## API-Dokumentation
+Die API-Dokumentation wird mit [Rswag](https://github.com/rswag/rswag) generiert. Du kannst sie im Browser unter folgendem Pfad aufrufen:
+```
+http://localhost:3000/api-docs
+```
+
+## Erste Schritte
+1. **Gems installieren**:
+   Stelle sicher, dass alle benötigten Gems installiert sind:
+   ```bash
+   bundle install
+   ```
+2. **Swagger-Dokumentation aktualisieren**:
+    ```bash
+    rake rswag:specs:swaggerize
+    ```
+3. **Server starten**:
+   ```bash
+   rails server
+   ```
