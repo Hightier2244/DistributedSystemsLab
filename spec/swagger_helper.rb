@@ -24,8 +24,16 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
+          url: 'https://localhost:3000',
+          description: 'Local server'
+        },
+        {
           url: 'https://orange-fishstick-4477g5jqj7jh7v6-3000.app.github.dev',
           description: 'Codespaces server'
+        },
+        {
+          url: 'http://127.0.0.1:3000',
+          description: 'Local server'
         }
       ]
     }
