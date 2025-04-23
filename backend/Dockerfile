@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Startbefehl für den Backend-Server
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD ["sh", "-c", "rails db:create db:migrate && rails server -b 0.0.0.0 -p 3000"]
