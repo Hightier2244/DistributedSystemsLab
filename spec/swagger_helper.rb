@@ -32,6 +32,10 @@ RSpec.configure do |config|
           description: 'Codespaces server'
         },
         {
+          url: 'https://friendly-capybara-w6779prr6w43677-3000.app.github.dev',
+          description: 'Codespaces server'
+        },
+        {
           url: 'http://127.0.0.1:3000',
           description: 'Local server'
         }

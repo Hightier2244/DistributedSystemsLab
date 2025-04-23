@@ -10,6 +10,12 @@ module CodespacesTryRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
+    config.paths.add 'frontend/views', eager_load: true
+    config.paths.add 'frontend/assets', eager_load: true
+    config.paths.add 'backend/controllers', eager_load: true
+    config.paths.add 'backend/models', eager_load: true
+    config.paths.add 'backend/services', eager_load: true
+    config.paths.add 'backend/lib', eager_load: true
 
     # Configuration for the application, engines, and railties goes here.
     #

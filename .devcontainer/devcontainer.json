@@ -10,22 +10,22 @@
     "server": "rails server"
   },
   "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "app/views/hello/index.html.erb"
-      ]
-    },
     "vscode": {
       "extensions": [
         "Shopify.ruby-lsp"
       ]
     }
   },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "forwardPorts": [3000, 5000],
   "portsAttributes": {
     "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
+      "label": "Backend"
+    },
+    "5000": {
+      "label": "Frontend"
     }
-  },
-  "forwardPorts": [3000]
+  }
 }
