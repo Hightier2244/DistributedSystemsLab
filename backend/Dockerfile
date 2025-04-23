@@ -1,4 +1,4 @@
-FROM ruby:3.3
+FROM ruby:3.4.2
 
 # Setze das Arbeitsverzeichnis
 WORKDIR /app

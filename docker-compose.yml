@@ -1,34 +1,43 @@
 services:
   frontend:
-    build:
+    build: 
       context: .
-      dockerfile: ./frontend
+      dockerfile: frontend/Dockerfile
+    container_name: frontend
     ports:
-      - "4000:4000"
-    depends_on:
-      - backend
+      - "5000:5000"
+    environment:
+      API_SERVER_URL: "http://api:3000"
+    networks:
+      - shoppingnet
 
   backend:
     build:
       context: .
-      dockerfile: ./backend
+      dockerfile: backend/Dockerfile
+    container_name: shopping_api
     ports:
       - "3000:3000"
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432/myapp_development
+      POSTGRES_CONNECTION: "Host=db;Port=5432;Database=shopping_db;Username=shopping_user;Password=shopping_pass"
+    networks:
+      - shoppingnet
 
   db:
     image: postgres:15
+    container_name: shopping_db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: myapp_development
-    ports:
-      - "5432:5432"
-    volumes:
-      - db_data:/var/lib/postgresql/data
+      POSTGRES_USER: shopping_user
+      POSTGRES_PASSWORD: shopping_pass
+      POSTGRES_DB: shopping_db
+    networks:
+      - shoppingnet
 
 volumes:
   db_data:
+
+networks:
+  shoppingnet:
+    driver: bridge
