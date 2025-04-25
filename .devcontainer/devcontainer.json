@@ -6,7 +6,7 @@
   "waitFor": "onCreateCommand",
   "updateContentCommand": "bundle install",
   "postCreateCommand": "",
-  "postAttachCommand": "docker compose up -d",
+  "postAttachCommand": "docker compose up -d --build",
   "customizations": {
     "vscode": {
       "extensions": [

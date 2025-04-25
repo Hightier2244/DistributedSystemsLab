@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  root 'home#index'
+  root to: redirect('/api-docs')
 
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
-  namespace :v1 do
-    resources :items, only: [:index, :create, :show, :update, :destroy]
-  end
+  resources :items, only: [:index, :create, :show, :update, :destroy]
 end

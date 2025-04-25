@@ -1,8 +1,6 @@
 services:
   frontend:
-    build: 
-      context: .
-      dockerfile: frontend/Dockerfile
+    image: maeddes/hse25frontend:flask
     container_name: frontend
     ports:
       - "5000:5000"
@@ -11,7 +9,7 @@ services:
     networks:
       - shoppingnet
 
-  backend:
+  api:
     build:
       context: .
       dockerfile: backend/Dockerfile

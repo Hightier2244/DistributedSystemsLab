@@ -1,5 +1,4 @@
-module V1
-  class ItemsController < ApplicationController
+class ItemsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
     before_action :set_item, only: [:show, :update, :destroy]
 
@@ -56,4 +55,3 @@ module V1
       params.require(:item).permit(:name, :quantity)
     end
   end
-end

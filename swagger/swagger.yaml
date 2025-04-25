@@ -4,7 +4,7 @@ info:
   title: API V1
   version: v1
 paths:
-  "/v1/items":
+  "/items":
     get:
       summary: Get all shopping items
       tags:
@@ -48,7 +48,7 @@ paths:
               required:
               - name
               - quantity
-  "/v1/items/{itemId}":
+  "/items/{itemId}":
     parameters:
     - name: itemId
       in: path

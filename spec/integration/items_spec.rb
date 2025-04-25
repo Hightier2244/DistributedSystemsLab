@@ -1,8 +1,8 @@
 require 'swagger_helper'
 
-RSpec.describe 'v1/items', type: :request do
+RSpec.describe 'items', type: :request do
 
-  path '/v1/items' do
+  path '/items' do
 
     get('Get all shopping items') do
       tags 'Items'
@@ -68,7 +68,7 @@ RSpec.describe 'v1/items', type: :request do
     end
   end
 
-  path '/v1/items/{itemId}' do
+  path '/items/{itemId}' do
     parameter name: :itemId, in: :path, type: :integer, description: 'ID of the item'
 
     get('Get item by ID') do
