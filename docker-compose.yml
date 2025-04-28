@@ -16,14 +16,18 @@ services:
     container_name: shopping_api
     ports:
       - "3000:3000"
-    depends_on:
-       - db
-    environment:
-      POSTGRES_CONNECTION: "Host=db;Port=5432;Database=shopping_db;Username=shopping_user;Password=shopping_pass"
+    volumes:
+      - sqlite_data:/app/db
+    # depends_on:
+    #    - db
+    # environment:
+    #   POSTGRES_CONNECTION: "Host=db;Port=5432;Database=shopping_db;Username=shopping_user;Password=shopping_pass"
     networks:
       - shoppingnet
   
 
+  # Backend Implementation of Florian Wieland
+  # Uncomment the following lines to use the backend implementation of Florian Wieland
   # api:
   #   # Build the API from the local directory
   #   #build: backend/ShoppingApi
@@ -43,18 +47,18 @@ services:
   #   networks:
   #     - shoppingnet
 
-  db:
-    image: postgres:15
-    container_name: shopping_db
-    environment:
-      POSTGRES_USER: shopping_user
-      POSTGRES_PASSWORD: shopping_pass
-      POSTGRES_DB: shopping_db
-    networks:
-      - shoppingnet
+  # db:
+  #   image: postgres:15
+  #   container_name: shopping_db
+  #   environment:
+  #     POSTGRES_USER: shopping_user
+  #     POSTGRES_PASSWORD: shopping_pass
+  #     POSTGRES_DB: shopping_db
+  #   networks:
+  #     - shoppingnet
 
 volumes:
-  db_data:
+  sqlite_data:
 
 networks:
   shoppingnet:
