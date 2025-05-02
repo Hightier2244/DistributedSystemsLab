@@ -12,7 +12,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
     container_name: shopping_api
     ports:
       - "3000:3000"
