@@ -116,7 +116,7 @@ paths:
 servers:
 - url: https://localhost:3000
   description: Local server
-- url: https://orange-fishstick-4477g5jqj7jh7v6-3000.app.github.dev
+- url: https://literate-memory-pvrrg4j7745crg5q-3000.app.github.dev
   description: Codespaces server
 - url: https://friendly-capybara-w6779prr6w43677-3000.app.github.dev
   description: Codespaces server
